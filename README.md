@@ -2,7 +2,7 @@
 
 ##A quick script to run shodan for specific port and keyword settings
 
-##add this line crontab with the command 'crontab -e' in your terminal
+##add this line crontab with the command 'crontab -e' in your terminal to automate every three days
 
 0 2 */3 * * cd /path/to/script && bash script.sh <<< "80\napache"
 
