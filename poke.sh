@@ -32,7 +32,10 @@ then
     shodan download --limit -1 "$keywords" "'$keywords' port:$port";
     gunzip -c "$keywords.json.gz" > "$output_dir/$keywords.json";
     jq . "$output_dir/$keywords.json" | grep ip_str | cut -d '"' -f 4 > "$output_dir/node-ips";
+    sort "$output_dir/node-ips" > "$output_dir/nodes"
     jq . "$output_dir/$keywords.json" | grep data | cut -d '"' -f 4 > "$output_dir/peerdata";
     grep -ro -E "([0-9]{1,3}\.){3}[0-9]{1,3}" "$output_dir/peerdata" > "$output_dir/peer-ips";
     rm "$output_dir/peerdata"
+    sort "$output_dir/peer-ips" > "$output_dir/peers"
+    rm "$output_dir/node-ips" "$output_dir/peer-ips"
 fi
