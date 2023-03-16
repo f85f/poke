@@ -5,7 +5,7 @@ output_dir="$(date +%Y-%m-%d-%H-%M)"
 mkdir -p "$output_dir"
 
 # Define dependencies and their installation commands
-api=NIrZKL5vXUUzzl31SZkGSidwVwXLsref
+api=<your shodan API>
 dependencies=("shodan:shodan" "jq:jq")
 install_commands=("pip3 install shodan" "shodan init $api" "sudo apt-get install jq")
 
